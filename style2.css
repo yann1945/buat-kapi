@@ -136,6 +136,24 @@ body {
   z-index: -1;
 }
 
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 9999;
+}
+
+.transition-active {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
 /* To move the envelope up and down */
 @keyframes up {
   0%,
