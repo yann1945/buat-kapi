@@ -2,6 +2,14 @@
   --eerie-black: hsl(210, 3%, 13%);
 }
 
+.card-title {
+  margin-block-start: 15px;
+  text-align: center;
+  transition: var(--transition-1);
+}
+
+.card-title:is(:hover, :focus) { color: var(--eerie-black); }
+
 body {
     display: flex;
     justify-content: center;
