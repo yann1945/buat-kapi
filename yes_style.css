@@ -1,3 +1,7 @@
+:root {
+  --eerie-black: hsl(210, 3%, 13%);
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -22,3 +26,7 @@ body {
     max-width: 500px; 
     height: auto; 
 }
+
+.h3 { line-height: 1.1; }
+.h3 { color: var(--eerie-black); }
+.h3 { font-size: var(--fs-3); }
