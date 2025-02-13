@@ -1,14 +1,14 @@
 const messages = [
-    "Are you sure?",
-    "Really sure??",
-    "Are you positive?",
-    "Pookie please...",
-    "Just think about it!",
-    "If you say no, I will be really sad...",
-    "I will be very sad...",
-    "I will be very very very sad...",
-    "Ok fine, I will stop asking...",
-    "Just kidding, say yes please! ❤️"
+    "Beneran?",
+    "Serius nih??",
+    "Beneran nih???",
+    "Yakin??!!",
+    "Pikirin dulu ajaaa",
+    "Coba pikirin duluu",
+    "Aelah... Beneran?",
+    "Mau ajaaa",
+    "Ok fine dehh",
+    "Aku sedih sihh"
 ];
 
 let messageIndex = 0;
@@ -25,3 +25,13 @@ function handleNoClick() {
 function handleYesClick() {
     window.location.href = "yes_page.html";
 }
+
+
+document.body.addEventListener("click", function() {
+    let overlay = document.querySelector(".transition-overlay");
+    overlay.classList.add("transition-active");
+
+    setTimeout(() => {
+        window.location.href = "page.html"; // Ganti dengan halaman tujuan
+    }, 500); // Sesuaikan dengan durasi animasi
+});
