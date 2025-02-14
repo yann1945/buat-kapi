@@ -32,7 +32,7 @@
             [1,0,0,0,0,0,0,0,0,1],
             [1,1,1,1,1,1,1,1,0,1],
             [1,0,0,0,0,0,0,1,0,1],
-            [1,0,1,1,1,1,0,1,💔,1],
+            [1,0,1,1,1,1,0,1,0,1],
             [1,1,1,1,1,1,1,1,1,1]
         ];
 
@@ -50,9 +50,10 @@
                 }
             }
             ctx.fillStyle = "red";
-            ctx.fillText("💔", player.x * tileSize + 10, player.y * tileSize + 30);
+            ctx.font = "30px Arial";
+            ctx.fillText("💔", player.x * tileSize + 5, player.y * tileSize + 30);
             ctx.fillStyle = "pink";
-            ctx.fillText("💖", goal.x * tileSize + 10, goal.y * tileSize + 30);
+            ctx.fillText("💖", goal.x * tileSize + 5, goal.y * tileSize + 30);
         }
 
         function move(direction) {
