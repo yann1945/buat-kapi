@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Maze Game</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; background-color: #ffcccc; }
+        canvas { background: white; display: block; margin: auto; }
+        button { margin: 10px; padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Valentine Maze Game</h1>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <br>
+    <button onclick="move('up')">⬆️</button><br>
+    <button onclick="move('left')">⬅️</button>
+    <button onclick="move('down')">⬇️</button>
+    <button onclick="move('right')">➡️</button>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const tileSize = 40;
+        const maze = [
+            [1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,1,0,0,0,0,1],
+            [1,0,1,0,1,0,1,1,0,1],
+            [1,0,1,0,0,0,1,0,0,1],
+            [1,0,1,1,1,1,1,0,1,1],
+            [1,0,0,0,0,0,0,0,0,1],
+            [1,1,1,1,1,1,1,1,0,1],
+            [1,0,0,0,0,0,0,1,0,1],
+            [1,0,1,1,1,1,0,1,💔,1],
+            [1,1,1,1,1,1,1,1,1,1]
+        ];
+
+        let player = { x: 1, y: 1 };
+        let goal = { x: 8, y: 8 };
+
+        function drawMaze() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let y = 0; y < maze.length; y++) {
+                for (let x = 0; x < maze[y].length; x++) {
+                    if (maze[y][x] === 1) {
+                        ctx.fillStyle = "black";
+                        ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
+                    }
+                }
+            }
+            ctx.fillStyle = "red";
+            ctx.fillText("💔", player.x * tileSize + 10, player.y * tileSize + 30);
+            ctx.fillStyle = "pink";
+            ctx.fillText("💖", goal.x * tileSize + 10, goal.y * tileSize + 30);
+        }
+
+        function move(direction) {
+            let newX = player.x;
+            let newY = player.y;
+            if (direction === "up") newY--;
+            if (direction === "down") newY++;
+            if (direction === "left") newX--;
+            if (direction === "right") newX++;
+            if (maze[newY][newX] === 0) {
+                player.x = newX;
+                player.y = newY;
+            }
+            if (player.x === goal.x && player.y === goal.y) {
+                alert("Selamat! Pecahan hati telah bersatu 💖");
+            }
+            drawMaze();
+        }
+
+        drawMaze();
+    </script>
+</body>
+</html>
