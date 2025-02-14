@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1>Valentine Maze Game</h1>
-    <canvas id="gameCanvas" width="480" height="480"></canvas>
+    <canvas id="gameCanvas" width="240" height="240"></canvas>
     <br>
     <button onclick="move('up')">⬆️</button><br>
     <button onclick="move('left')">⬅️</button>
@@ -23,7 +23,7 @@
         const ctx = canvas.getContext("2d");
 
         const tileSize = 16;
-        const mazeSize = 30;
+        const mazeSize = 15;
         const maze = Array.from({ length: mazeSize }, () => Array(mazeSize).fill(1));
 
         for (let y = 1; y < mazeSize - 1; y += 2) {
